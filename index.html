@@ -289,8 +289,184 @@ footer{
 }
 .pk-note a:hover{background:var(--brass);border-color:var(--brass);color:#0D1219}
 
+/* ============ SECTION 2.7 : SOVEREIGN AI ============ */
+:root{--teal:#0A2B2E;--teal-2:#0D3438;--teal-line:rgba(146,222,213,.14);--seafoam:#8FD8CE;--seafoam-dim:#5E9C95}
+.sovereign{
+  background:
+    radial-gradient(1100px 500px at 80% 0%,rgba(143,216,206,.07),transparent 55%),
+    linear-gradient(180deg,var(--teal-2) 0%,var(--teal) 70%);
+  color:var(--pale);
+  padding:clamp(70px,10vh,120px) clamp(28px,6vw,80px);
+  border-top:1px solid var(--teal-line);
+  position:relative;overflow:hidden;
+}
+.sov-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.sov-eyebrow{
+  font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--seafoam);margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+}
+.sov-eyebrow::after{content:"";flex:1;height:1px;background:var(--teal-line)}
+.sovereign h2{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(30px,3.4vw,46px);line-height:1.12;color:var(--pale);
+}
+.sovereign h2 em{font-style:italic;color:var(--seafoam)}
+.sovereign .sov-copy{
+  margin-top:20px;font-size:16px;line-height:1.75;font-weight:300;color:#B9CFCB;max-width:52ch;
+}
+.sov-points{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--teal-line)}
+.sov-point{
+  display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding:20px 0;border-bottom:1px solid var(--teal-line);
+}
+.sov-point .tick{
+  width:22px;height:22px;border:1px solid var(--seafoam-dim);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--seafoam);font-size:11px;margin-top:2px;
+}
+.sov-point h3{font-family:'Source Serif 4',serif;font-weight:500;font-size:16.5px;color:var(--pale);margin-bottom:4px}
+.sov-point p{font-size:13.5px;line-height:1.6;font-weight:300;color:#9CB8B3}
+.sov-cta{margin-top:34px}
+.sov-cta a{
+  font-family:'Onest',sans-serif;font-size:14px;font-weight:600;
+  color:var(--teal);background:var(--seafoam);border:1px solid var(--seafoam);
+  padding:15px 30px;text-decoration:none;display:inline-block;transition:.22s;
+}
+.sov-cta a:hover{background:transparent;color:var(--seafoam)}
+
+/* ============ SECTION 2.7 : SOVEREIGN ============ */
+:root{--teal-deep:#062A2C;--teal:#0B3B3E;--teal-line:rgba(122,212,200,.16);--teal-bright:#7AD4C8}
+.sovereign{
+  background:
+    radial-gradient(1100px 500px at 80% 0%,rgba(122,212,200,.07),transparent 55%),
+    linear-gradient(180deg,var(--teal) 0%,var(--teal-deep) 100%);
+  border-top:1px solid var(--teal-line);
+  padding:clamp(70px,10vh,120px) clamp(28px,6vw,80px);
+  color:var(--pale);
+}
+.sov-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.sov-eyebrow{
+  font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--teal-bright);margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+}
+.sov-eyebrow::after{content:"";flex:1;height:1px;background:var(--teal-line)}
+.sovereign h2{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:var(--pale);
+}
+.sovereign h2 em{font-style:italic;color:var(--teal-bright)}
+.sovereign .sov-body{
+  margin-top:20px;font-size:16px;line-height:1.75;font-weight:300;color:#B9C9C6;max-width:54ch;
+}
+.sovereign .sov-body strong{font-weight:600;color:var(--pale)}
+.sov-cta{margin-top:36px}
+.sov-cta a{
+  font-family:'Onest',sans-serif;font-size:14px;font-weight:600;
+  color:var(--teal-deep);background:var(--teal-bright);border:1px solid var(--teal-bright);
+  padding:15px 30px;text-decoration:none;transition:.22s;display:inline-block;
+}
+.sov-cta a:hover{background:var(--pale);border-color:var(--pale)}
+
+.sov-points{display:flex;flex-direction:column;gap:0}
+.sov-point{
+  border:1px solid var(--teal-line);border-bottom:none;
+  background:rgba(6,42,44,.5);padding:24px 28px;
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+}
+.sov-point:last-child{border-bottom:1px solid var(--teal-line)}
+.sov-point .glyph{
+  font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--teal-bright);padding-top:3px;
+}
+.sov-point h3{font-family:'Source Serif 4',serif;font-weight:500;font-size:16.5px;color:var(--pale);margin-bottom:6px}
+.sov-point p{font-size:13.5px;line-height:1.6;font-weight:300;color:#9FB4B0}
+
+@media(max-width:900px){
+  .sov-inner{grid-template-columns:1fr}
+}
+
+/* ============ SECTION 2.8 : CASES ============ */
+.cases{
+  background:linear-gradient(180deg,var(--paper) 0%,var(--alabaster) 100%);
+  color:#0D1219;
+  padding:clamp(70px,10vh,120px) clamp(28px,6vw,80px);
+  border-top:1px solid var(--line-light);
+}
+.cs-inner{max-width:1120px;margin:0 auto}
+.cs-head{max-width:680px;margin-bottom:clamp(48px,7vh,80px)}
+.cs-head h2{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:#0D1219;
+}
+.cs-head h2 em{font-style:italic;color:var(--brass)}
+.cs-head p{margin-top:16px;font-size:16px;line-height:1.7;font-weight:300;color:#3A4250}
+
+.case{
+  display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,72px);
+  align-items:center;padding:clamp(44px,6vh,72px) 0;
+  border-top:1px solid var(--line-light);
+}
+.case:first-of-type{border-top:none;padding-top:0}
+.case.rev .cs-media{order:2}
+.case.rev .cs-text{order:1}
+
+.cs-media{position:relative}
+.cs-media .frame{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line-light);
+  box-shadow:0 24px 60px rgba(13,18,25,.12);
+}
+.cs-media img{
+  display:block;width:100%;height:100%;object-fit:cover;
+  aspect-ratio:4/3;
+  transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+.case:hover .cs-media img{transform:scale(1.035)}
+.cs-media .idx{
+  position:absolute;top:-14px;left:-14px;z-index:2;
+  width:52px;height:52px;display:flex;align-items:center;justify-content:center;
+  background:#0D1219;color:var(--champagne);
+  font-family:'Source Serif 4',serif;font-size:18px;
+}
+
+.cs-text .cs-meta{
+  font-family:'Fragment Mono',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.cs-text .cs-meta::after{content:"";width:56px;height:1px;background:var(--line-light)}
+.cs-text h3{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(22px,2.4vw,30px);line-height:1.2;color:#0D1219;
+}
+.cs-text h3 em{font-style:italic;color:var(--brass)}
+.cs-text p{margin-top:16px;font-size:14.5px;line-height:1.75;font-weight:300;color:#4B5464;max-width:56ch}
+.cs-stat{
+  margin-top:24px;display:flex;gap:28px;flex-wrap:wrap;
+  padding-top:20px;border-top:1px solid var(--line-light);
+}
+.cs-stat div{display:flex;flex-direction:column;gap:4px}
+.cs-stat b{
+  font-family:'Source Serif 4',serif;font-weight:500;font-size:22px;color:#0D1219;
+}
+.cs-stat b i{font-style:italic;color:var(--brass)}
+.cs-stat span{
+  font-family:'Fragment Mono',monospace;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--slate);
+}
+
+@media(max-width:900px){
+  .case{grid-template-columns:1fr;gap:26px}
+  .case.rev .cs-media{order:1}
+  .case.rev .cs-text{order:2}
+  .cs-media .idx{top:-10px;left:-6px;width:44px;height:44px;font-size:16px}
+}
+
 /* mobile */
 @media(max-width:900px){
+  .sov-inner{grid-template-columns:1fr}
   .pk-grid{grid-template-columns:1fr}
   .pk{border-right:1px solid var(--line-light);border-bottom:none}
   .pk:last-child{border-bottom:1px solid var(--line-light)}
@@ -351,15 +527,16 @@ footer{
           <h2>Most firms are experimenting with AI. <em>Very few are running on it.</em></h2>
           <p class="lede">Agentic Collective closes the <strong>execution gap</strong> — combining executive strategy, operational delivery and advanced AI capability into measurable business impact. Built by operators who have run technology and product at board level for 30+ years.</p>
           <div class="proof">
-            <div class="proof-row"><span class="client">Kobalt Music</span><span class="result placeholder">Result line to confirm — e.g. <b>–38%</b> manual processing time</span></div>
-            <div class="proof-row"><span class="client">Retail+</span><span class="result placeholder">Haribo / Ploom proof point — <b>+xx%</b> to confirm</span></div>
-            <div class="proof-row"><span class="client">Santander</span><span class="result placeholder">Regulated-environment delivery — metric to confirm</span></div>
+            <div class="proof-row"><span class="client">ASOS</span><span class="result"><b>22:1 ROI</b> on an AI-driven commerce experience that enabled North American expansion</span></div>
+            <div class="proof-row"><span class="client">Kobalt · AWAL</span><span class="result"><b>$430m</b> Sony Music acquisition, preceded by our agentic artist platform</span></div>
+            <div class="proof-row"><span class="client">Haribo</span><span class="result"><b>Trend Hunter</b> recognition for AI-fuelled retail gamification at point of sale</span></div>
+            <div class="proof-row"><span class="client">JTI Ploom</span><span class="result"><b>8 cities</b> of agentic duty-free personalisation, Dubai to Tokyo</span></div>
           </div>
           <div class="cta-block">
             <a class="btn solid" href="#">Book an executive strategy call</a>
             <a class="btn line" href="#" onclick="go('packages','Show me how you work');return false;">Start with the Audit</a>
           </div>
-          <div class="footnote">Concept build · placeholder metrics · v0.2</div>
+          <div class="footnote">Concept build · v0.3</div>
         </div>
 
         <div class="scene" id="scene-packages">
@@ -448,6 +625,107 @@ footer{
   </div>
 </section>
 
+<!-- ============ SOVEREIGN AI ============ -->
+<section class="sovereign" id="sovereign">
+  <div class="sov-inner">
+    <div>
+      <div class="sov-eyebrow">Sovereign capability</div>
+      <h2>Sovereign AI. <em>Enterprise ready.</em></h2>
+      <p class="sov-body">Run AI with complete control over your data, infrastructure and compliance. Our sovereign AI platform gives enterprises the confidence to innovate securely, meet regulatory requirements and <strong>reduce dependency on overseas providers</strong>, without compromising performance or scale.</p>
+      <div class="sov-cta"><a href="#contact">Discuss sovereign deployment</a></div>
+    </div>
+    <div class="sov-points">
+      <div class="sov-point">
+        <span class="glyph">01</span>
+        <div><h3>Your data, your jurisdiction</h3><p>Control over where models run, where data lives, and which regulator's rules apply.</p></div>
+      </div>
+      <div class="sov-point">
+        <span class="glyph">02</span>
+        <div><h3>Governance as the enabler</h3><p>Compliance built into the architecture, not bolted on. Designed for regulated and complex environments.</p></div>
+      </div>
+      <div class="sov-point">
+        <span class="glyph">03</span>
+        <div><h3>Independence by design</h3><p>Vendor-agnostic by principle: sovereign where it protects you, frontier capability where it pays, and a clear map of which is which.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASES ============ -->
+<section class="cases" id="cases">
+  <div class="cs-inner">
+    <div class="cs-head">
+      <h2>Agentic Orchestration <em>Cases.</em></h2>
+      <p>Four engagements where agentic AI moved from promise to production, across commerce, music, retail and travel.</p>
+    </div>
+
+    <div class="case">
+      <div class="cs-media">
+        <span class="idx">I</span>
+        <div class="frame"><img src="images/asos.webp" alt="ASOS mobile shopping experience" loading="lazy"></div>
+      </div>
+      <div class="cs-text">
+        <div class="cs-meta">ASOS · Commerce</div>
+        <h3>AI-Powered <em>Commerce Transformation.</em></h3>
+        <p>Designed and delivered an AI-driven shopping experience that transformed how customers discovered and purchased products on mobile. By combining agentic AI, advanced curation and human-in-the-loop workflows, the solution achieved a 22:1 ROI, received multiple industry awards and enabled ASOS's successful expansion into North America, driving millions in new revenue.</p>
+        <div class="cs-stat">
+          <div><b>22:1</b><span>Return on investment</span></div>
+          <div><b>N. America</b><span>Expansion enabled</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case rev">
+      <div class="cs-media">
+        <span class="idx">II</span>
+        <div class="frame"><img src="images/awal.webp" alt="AWAL artist platform" loading="lazy"></div>
+      </div>
+      <div class="cs-text">
+        <div class="cs-meta">Kobalt Music · AWAL</div>
+        <h3>Reimagining the <em>Independent Artist Experience.</em></h3>
+        <p>Designed and delivered an AI-driven, agentic customer experience that gave independent artists personalised insights into audiences, streaming performance and royalties. By turning complex data into intelligent, actionable guidance, the platform empowered artists to make better decisions at every stage of their careers. The work earned multiple industry awards and helped establish AWAL as a technology leader ahead of its $430 million acquisition by Sony Music.</p>
+        <div class="cs-stat">
+          <div><b>$430m</b><span>Sony Music acquisition</span></div>
+          <div><b>Multiple</b><span>Industry awards</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="cs-media">
+        <span class="idx">III</span>
+        <div class="frame"><img src="images/haribo.jpg" alt="Haribo Spin to Win in-store activation" loading="lazy"></div>
+      </div>
+      <div class="cs-text">
+        <div class="cs-meta">Haribo · Retail+</div>
+        <h3>Reimagining the <em>Confectionery Shopping Moment.</em></h3>
+        <p>Designed and delivered an AI-driven, agentic retail experience for Haribo that turned passing shoppers into active participants through real-time, personalised gamified promotions. By orchestrating adaptive prize mechanics and dynamic reward logic at the point of decision, the platform transformed a single QR scan into an intelligent, individualised play journey, no two shopper experiences ever quite the same. The work was recognised by Trend Hunter as a leading example of AI-fuelled retail gamification, helping establish Retail+ as the intelligent engine behind one of confectionery retail's most talked-about activations.</p>
+        <div class="cs-stat">
+          <div><b>Trend Hunter</b><span>Featured recognition</span></div>
+          <div><b>1 scan</b><span>Individualised journeys</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case rev">
+      <div class="cs-media">
+        <span class="idx">IV</span>
+        <div class="frame"><img src="images/ploom.jpg" alt="Ploom flagship launch, Dubai Duty Free" loading="lazy"></div>
+      </div>
+      <div class="cs-text">
+        <div class="cs-meta">JTI Ploom · Travel Retail</div>
+        <h3>Future-Forward <em>Duty-Free Personalisation at Scale.</em></h3>
+        <p>JTI's Ploom rollout paired an AI-informed, agentic retail layer with bespoke, real-time device customisation, giving travellers a personalised path from discovery to a product built for them, on the spot, at the point of sale. By turning a routine duty-free purchase into an intelligent, individualised moment, the activation, delivered with Dubai Airports, Dubai Duty Free and JCDecaux, transformed personalisation from a marketing promise into a physical, on-counter reality. The pattern has since scaled across Geneva, Zurich, Milan, Rome, Athens, Madrid, Tokyo and Dubai, establishing bespoke, agentic personalisation as the new benchmark for premium travel retail.</p>
+        <div class="cs-stat">
+          <div><b>8 cities</b><span>Global rollout</span></div>
+          <div><b>On-counter</b><span>Real-time customisation</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="contact-grid">
@@ -513,6 +791,7 @@ footer{
       <h4>Explore</h4>
       <a href="#top">The Console</a>
       <a href="#packages">How We Work</a>
+      <a href="#cases">Orchestration Cases</a>
       <a href="#" onclick="return false;">Portfolio AI Review</a>
       <a href="#" onclick="return false;">The Collective</a>
     </div>
