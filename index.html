@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Collective — Human Intelligence, orchestrated by AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Fragment+Mono&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1220;--ink-deep:#080D17;--ink-2:#101826;--ink-3:#182236;
+  --brass:#A9884F;--brass-bright:#C7A768;--champagne:#E8D9B5;
+  --alabaster:#EFEAE0;--alabaster-2:#E6DFD2;--paper:#F5F1E8;
+  --pale:#EFEAE0;--slate:#6B7A8F;
+  --line-dark:rgba(239,234,224,.12);--line-light:rgba(13,18,25,.14);
+  --txt-dim:#8B95A3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  font-family:'Onest',sans-serif;color:var(--pale);
+}
+::selection{background:var(--brass);color:var(--ink)}
+
+/* ============ SECTION 1 : ORBITAL HERO ============ */
+.hero{position:relative;height:100vh;height:100dvh;overflow:hidden;
+  background:radial-gradient(1600px 1000px at 55% 38%,#101A2C 0%,var(--ink) 45%,var(--ink-deep) 100%);}
+#orbits{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+
+.copy{position:absolute;left:clamp(28px,5vw,72px);bottom:clamp(90px,14vh,150px);pointer-events:none;max-width:640px}
+.eyebrow-h{
+  font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:18px;
+  opacity:0;animation:up 1.1s ease .5s forwards;
+}
+.hero h1{
+  font-family:'Source Serif 4',serif;font-weight:400;color:var(--pale);
+  font-size:clamp(34px,4.6vw,60px);line-height:1.16;
+  opacity:0;animation:up 1.1s ease .75s forwards;
+}
+.hero h1 em{font-style:italic;color:var(--champagne)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.scroll-cta{
+  position:absolute;left:50%;bottom:30px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--slate);text-decoration:none;
+  opacity:0;animation:up 1.1s ease 1.3s forwards;transition:color .3s;
+}
+.scroll-cta:hover{color:var(--champagne)}
+.scroll-cta .stem{width:1px;height:44px;background:linear-gradient(180deg,transparent,var(--brass));position:relative;overflow:hidden}
+.scroll-cta .stem::after{
+  content:"";position:absolute;left:0;top:-30%;width:100%;height:30%;
+  background:var(--champagne);animation:drip 2s ease-in-out infinite;
+}
+@keyframes drip{0%{top:-30%}70%,100%{top:110%}}
+
+/* ============ SECTION 2 : CONSOLE ============ */
+.console-section{height:100vh;height:100dvh}
+.shell{display:grid;grid-template-columns:minmax(400px,44%) 1fr;height:100%}
+
+.console{
+  background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);
+  display:flex;flex-direction:column;border-right:1px solid var(--line-dark);position:relative;
+}
+.console::after{
+  content:"";position:absolute;top:0;right:-1px;width:1px;height:100%;
+  background:linear-gradient(180deg,transparent,var(--brass) 40%,var(--brass) 60%,transparent);
+  opacity:.35;pointer-events:none;
+}
+.console-head{padding:24px 34px 18px;border-bottom:1px solid var(--line-dark);display:flex;align-items:center;justify-content:space-between}
+.wordmark{font-family:'Source Serif 4',serif;font-size:19px;letter-spacing:.1em;color:var(--pale)}
+.wordmark em{font-style:italic;color:var(--brass-bright)}
+.status{font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--slate);display:flex;align-items:center;gap:8px;text-transform:uppercase}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--brass-bright);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.stream{flex:1;overflow-y:auto;padding:30px 34px 20px;display:flex;flex-direction:column;gap:22px;scrollbar-width:thin;scrollbar-color:var(--ink-3) transparent}
+.stream::-webkit-scrollbar{width:4px}.stream::-webkit-scrollbar-thumb{background:var(--ink-3)}
+.msg{max-width:92%;opacity:0;transform:translateY(8px);animation:rise .5s ease forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.msg.ac .who{font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--brass);text-transform:uppercase;margin-bottom:8px}
+.msg.ac .body{font-size:15.5px;line-height:1.65;font-weight:300}
+.msg.ac .body strong{font-weight:600;color:#fff}
+.msg.you{align-self:flex-end;text-align:right}
+.msg.you .body{display:inline-block;background:var(--ink-3);border:1px solid var(--line-dark);padding:10px 16px;border-radius:14px 14px 3px 14px;font-size:14.5px}
+.caret{display:inline-block;width:8px;height:17px;background:var(--brass-bright);vertical-align:-2px;animation:pulse 1s steps(2) infinite}
+
+.chips{padding:16px 34px 28px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;gap:9px}
+.chip{font-size:13px;font-weight:500;color:var(--pale);background:transparent;border:1px solid rgba(169,136,79,.45);border-radius:999px;padding:9px 17px;cursor:pointer;transition:.22s;font-family:'Onest',sans-serif}
+.chip:hover,.chip:focus-visible{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--brass-bright);outline-offset:2px}
+.chip.ghost{border-color:var(--line-dark);color:var(--slate)}
+.chip.ghost:hover{background:var(--ink-3);color:var(--pale)}
+
+/* stage */
+.stage{background:var(--alabaster);color:#0D1219;position:relative;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--alabaster-2) transparent}
+.stage-inner{padding:52px 60px 76px;max-width:860px;margin:0 auto;position:relative}
+.scene{display:none;animation:fadein .55s ease}
+.scene.on{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eyebrow{font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line-light)}
+.stage h2{font-family:'Source Serif 4',serif;font-weight:400;font-size:clamp(26px,2.8vw,36px);line-height:1.15;color:#0D1219}
+.stage h2 em{font-style:italic;color:var(--brass)}
+.lede{font-size:16.5px;line-height:1.7;color:#3A4250;font-weight:300;max-width:56ch;margin-top:18px}
+.lede strong{font-weight:600;color:#0D1219}
+
+.proof{margin-top:40px;border-top:1px solid var(--line-light)}
+.proof-row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--line-light);align-items:baseline}
+.proof-row .client{font-family:'Source Serif 4',serif;font-size:16px}
+.proof-row .result{font-size:14.5px;color:#4B5464;font-weight:300}
+.proof-row .result b{color:var(--brass);font-weight:600;font-family:'Fragment Mono',monospace;font-size:13.5px}
+.placeholder{color:#9AA1AE;font-style:italic}
+
+.ladder{margin-top:36px;counter-reset:step}
+.rung{border:1px solid var(--line-light);border-bottom:none;background:var(--paper);padding:24px 28px;display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:start;transition:.25s}
+.rung:last-child{border-bottom:1px solid var(--line-light)}
+.rung:hover{background:#fff}
+.rung::before{counter-increment:step;content:counter(step,upper-roman);font-family:'Source Serif 4',serif;font-size:22px;color:var(--brass);line-height:1.1}
+.rung h3{font-family:'Source Serif 4',serif;font-weight:500;font-size:18px;margin-bottom:6px}
+.rung p{font-size:14px;line-height:1.6;color:#4B5464;font-weight:300;max-width:46ch}
+.rung .meta{font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--slate);text-transform:uppercase;white-space:nowrap;padding-top:5px}
+.rung.hot{border-left:3px solid var(--brass)}
+
+.team{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--paper);border:1px solid var(--line-light);padding:26px}
+.portrait{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--ink) 30%,var(--ink-3));display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;color:var(--brass-bright);font-size:19px;margin-bottom:16px}
+.card h3{font-family:'Source Serif 4',serif;font-weight:500;font-size:17px}
+.card .role{font-family:'Fragment Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin:5px 0 12px}
+.card p{font-size:13.5px;line-height:1.6;color:#4B5464;font-weight:300}
+
+.cta-block{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:'Onest',sans-serif;font-size:14px;font-weight:600;padding:15px 28px;cursor:pointer;transition:.22s;border:1px solid #0D1219;text-decoration:none;display:inline-block}
+.btn.solid{background:#0D1219;color:var(--alabaster)}
+.btn.solid:hover{background:var(--brass);border-color:var(--brass);color:#0D1219}
+.btn.line{background:transparent;color:#0D1219}
+.btn.line:hover{background:#0D1219;color:var(--alabaster)}
+
+.footnote{margin-top:52px;padding-top:20px;border-top:1px solid var(--line-light);font-family:'Fragment Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#9AA1AE;text-transform:uppercase}
+
+/* ============ SECTION 3 : CONTACT ============ */
+.contact{
+  background:linear-gradient(180deg,var(--ink-2) 0%,var(--ink) 60%);
+  border-top:1px solid var(--line-dark);
+  padding:clamp(70px,10vh,120px) clamp(28px,6vw,80px);
+}
+.contact-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,6vw,90px)}
+.contact h2{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:var(--pale);
+}
+.contact h2 em{font-style:italic;color:var(--champagne)}
+.contact .sub{margin-top:18px;font-size:15.5px;line-height:1.7;font-weight:300;color:var(--txt-dim);max-width:42ch}
+.contact .direct{
+  margin-top:38px;padding-top:26px;border-top:1px solid var(--line-dark);
+  font-family:'Fragment Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--slate);
+  display:flex;flex-direction:column;gap:10px;
+}
+.contact .direct a{color:var(--champagne);text-decoration:none;transition:color .25s}
+.contact .direct a:hover{color:var(--brass-bright)}
+
+.cform{display:flex;flex-direction:column;gap:26px}
+.field{display:flex;flex-direction:column;gap:9px}
+.field label{
+  font-family:'Fragment Mono',monospace;font-size:10.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass);
+}
+.field input,.field select,.field textarea{
+  background:transparent;border:none;border-bottom:1px solid var(--line-dark);
+  padding:10px 2px 12px;color:var(--pale);
+  font-family:'Onest',sans-serif;font-size:15.5px;font-weight:300;
+  transition:border-color .3s;border-radius:0;appearance:none;-webkit-appearance:none;
+}
+.field select{cursor:pointer}
+.field select option{background:var(--ink-2);color:var(--pale)}
+.field textarea{resize:vertical;min-height:88px;line-height:1.6}
+.field input::placeholder,.field textarea::placeholder{color:#4A5568}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--brass)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.cform .send{
+  align-self:flex-start;margin-top:6px;
+  font-family:'Onest',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;
+  background:var(--brass);color:var(--ink);border:1px solid var(--brass);
+  padding:15px 34px;cursor:pointer;transition:.22s;
+}
+.cform .send:hover{background:var(--champagne);border-color:var(--champagne)}
+.cform .send:focus-visible{outline:2px solid var(--champagne);outline-offset:3px}
+.form-note{font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.1em;color:#4A5568;text-transform:uppercase}
+.sent{
+  border:1px solid rgba(169,136,79,.4);padding:28px;
+  font-size:15px;line-height:1.7;font-weight:300;color:var(--pale);display:none;
+}
+.sent b{color:var(--champagne);font-weight:600}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--ink-deep);border-top:1px solid var(--line-dark);
+  padding:52px clamp(28px,6vw,80px) 40px;
+}
+.foot-grid{
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start;
+}
+.foot-mark{font-family:'Source Serif 4',serif;font-size:19px;letter-spacing:.08em;color:var(--pale)}
+.foot-mark em{font-style:italic;color:var(--brass-bright)}
+.foot-tag{margin-top:12px;font-size:13px;font-weight:300;color:var(--txt-dim);max-width:30ch;line-height:1.6}
+.foot-col h4{
+  font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--slate);margin-bottom:16px;font-weight:400;
+}
+.foot-col a{
+  display:block;color:var(--pale);text-decoration:none;font-size:14px;font-weight:300;
+  padding:5px 0;transition:color .25s;
+}
+.foot-col a:hover{color:var(--champagne)}
+.foot-col a .new{
+  font-family:'Fragment Mono',monospace;font-size:9px;letter-spacing:.14em;
+  color:var(--brass);border:1px solid rgba(169,136,79,.4);border-radius:999px;
+  padding:2px 8px;margin-left:8px;vertical-align:2px;
+}
+.foot-base{
+  max-width:1120px;margin:44px auto 0;padding-top:22px;
+  border-top:1px solid var(--line-dark);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:'Fragment Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:#3D4A5C;
+}
+
+/* ============ SECTION 2.5 : PACKAGES ============ */
+.packages{
+  background:linear-gradient(180deg,var(--alabaster) 0%,var(--alabaster-2) 100%);
+  color:#0D1219;
+  padding:clamp(70px,10vh,120px) clamp(28px,6vw,80px);
+  border-top:1px solid var(--line-dark);
+}
+.pk-inner{max-width:1120px;margin:0 auto}
+.pk-head{max-width:640px;margin-bottom:clamp(40px,6vh,64px)}
+.pk-head .eyebrow{margin-bottom:16px}
+.pk-head h2{
+  font-family:'Source Serif 4',serif;font-weight:400;
+  font-size:clamp(30px,3.4vw,44px);line-height:1.15;color:#0D1219;
+}
+.pk-head h2 em{font-style:italic;color:var(--brass)}
+.pk-head p{margin-top:16px;font-size:16px;line-height:1.7;font-weight:300;color:#3A4250}
+.pk-head p strong{font-weight:600;color:#0D1219}
+
+.pk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:pk}
+.pk{
+  background:var(--paper);border:1px solid var(--line-light);border-right:none;
+  padding:32px 28px 36px;display:flex;flex-direction:column;gap:14px;
+  transition:.25s;position:relative;
+}
+.pk:last-child{border-right:1px solid var(--line-light)}
+.pk:hover{background:#fff;transform:translateY(-4px);box-shadow:0 18px 40px rgba(13,18,25,.10)}
+.pk::before{
+  counter-increment:pk;content:"0" counter(pk);
+  font-family:'Fragment Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--brass);
+}
+.pk h3{font-family:'Source Serif 4',serif;font-weight:500;font-size:19px;line-height:1.25}
+.pk .pk-meta{
+  font-family:'Fragment Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--slate);
+}
+.pk p{font-size:13.5px;line-height:1.65;font-weight:300;color:#4B5464;flex:1}
+.pk a{
+  font-size:13px;font-weight:600;color:#0D1219;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:color .25s;
+}
+.pk a::after{content:"→";transition:transform .25s}
+.pk a:hover{color:var(--brass)}
+.pk a:hover::after{transform:translateX(4px)}
+.pk.front{border-top:3px solid var(--brass)}
+
+.pk-note{
+  margin-top:36px;padding:24px 28px;
+  border:1px solid var(--line-light);background:rgba(169,136,79,.07);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.pk-note span{font-size:14.5px;font-weight:300;color:#3A4250;max-width:60ch}
+.pk-note span b{font-weight:600;color:#0D1219}
+.pk-note a{
+  font-family:'Onest',sans-serif;font-size:13.5px;font-weight:600;white-space:nowrap;
+  color:var(--alabaster);background:#0D1219;border:1px solid #0D1219;
+  padding:12px 24px;text-decoration:none;transition:.22s;
+}
+.pk-note a:hover{background:var(--brass);border-color:var(--brass);color:#0D1219}
+
+/* mobile */
+@media(max-width:900px){
+  .pk-grid{grid-template-columns:1fr}
+  .pk{border-right:1px solid var(--line-light);border-bottom:none}
+  .pk:last-child{border-bottom:1px solid var(--line-light)}
+  .pk:hover{transform:none}
+  .contact-grid{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .shell{grid-template-columns:1fr}
+  .console-section{height:auto}
+  .console{min-height:62vh;border-right:none;border-bottom:1px solid var(--line-dark)}
+  .console::after{display:none}
+  .stream{padding:22px}
+  .console-head,.chips{padding-left:22px;padding-right:22px}
+  .stage-inner{padding:40px 24px 60px}
+  .team{grid-template-columns:1fr}
+  .rung{grid-template-columns:40px 1fr;gap:14px}
+  .rung .meta{grid-column:2}
+  .copy{bottom:clamp(110px,18vh,170px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .msg,.scene,.eyebrow-h,.hero h1,.scroll-cta{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas id="orbits"></canvas>
+  <div class="copy">
+    <div class="eyebrow-h">We are the Agentic Collective. We believe in</div>
+    <h1>Human Intelligence,<br><em>orchestrated by AI.</em></h1>
+  </div>
+  <a class="scroll-cta" href="#console">
+    <span>Enter the console</span>
+    <span class="stem"></span>
+  </a>
+</section>
+
+<!-- ============ CONSOLE ============ -->
+<section class="console-section" id="console">
+  <div class="shell">
+    <div class="console">
+      <div class="console-head">
+        <span class="wordmark">AGENTIC <em>COLLECTIVE</em></span>
+        <span class="status"><span class="dot"></span>Live console</span>
+      </div>
+      <div class="stream" id="stream"></div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-inner">
+
+        <div class="scene on" id="scene-hero">
+          <div class="eyebrow">AI transformation, without the theatre</div>
+          <h2>Most firms are experimenting with AI. <em>Very few are running on it.</em></h2>
+          <p class="lede">Agentic Collective closes the <strong>execution gap</strong> — combining executive strategy, operational delivery and advanced AI capability into measurable business impact. Built by operators who have run technology and product at board level for 30+ years.</p>
+          <div class="proof">
+            <div class="proof-row"><span class="client">Kobalt Music</span><span class="result placeholder">Result line to confirm — e.g. <b>–38%</b> manual processing time</span></div>
+            <div class="proof-row"><span class="client">Retail+</span><span class="result placeholder">Haribo / Ploom proof point — <b>+xx%</b> to confirm</span></div>
+            <div class="proof-row"><span class="client">Santander</span><span class="result placeholder">Regulated-environment delivery — metric to confirm</span></div>
+          </div>
+          <div class="cta-block">
+            <a class="btn solid" href="#">Book an executive strategy call</a>
+            <a class="btn line" href="#" onclick="go('packages','Show me how you work');return false;">Start with the Audit</a>
+          </div>
+          <div class="footnote">Concept build · placeholder metrics · v0.2</div>
+        </div>
+
+        <div class="scene" id="scene-packages">
+          <div class="eyebrow">How we work</div>
+          <h2>One ladder. <em>No leap of faith.</em></h2>
+          <p class="lede">Every engagement starts small, proves value, then scales. Audit fees credit against the Sprint — you never pay twice for the same thinking.</p>
+          <div class="ladder">
+            <div class="rung hot"><div><h3>AI Execution Audit</h3><p>Scored roadmap, cost of inaction, your three highest-value workflows. The front door.</p></div><span class="meta">2–3 weeks · fixed fee</span></div>
+            <div class="rung"><div><h3>Proof Sprint</h3><p>One workflow, built and measured against agreed success metrics. Audit fee credits against it.</p></div><span class="meta">6–8 weeks</span></div>
+            <div class="rung"><div><h3>Transformation Programme</h3><p>Scale the proven pattern across teams. Governance, compliance and workforce enablement built in.</p></div><span class="meta">Quarterly retainer</span></div>
+            <div class="rung"><div><h3>Fractional AI Leadership</h3><p>Board-level oversight of model, vendor and roadmap decisions. Portfolio AI Review available for PE &amp; Family Offices.</p></div><span class="meta">Ongoing</span></div>
+          </div>
+          <div class="cta-block"><a class="btn solid" href="#">Start with the Audit</a></div>
+        </div>
+
+        <div class="scene" id="scene-pe">
+          <div class="eyebrow">For investors</div>
+          <h2>Portfolio <em>AI Review</em></h2>
+          <p class="lede">One engagement, three portfolio companies. Each receives an Execution Audit; you receive a comparative readout — where AI creates enterprise value, where it's theatre, and what to fund first. <strong>Delivered board-side, not vendor-side.</strong></p>
+          <div class="proof">
+            <div class="proof-row"><span class="client">Diligence</span><span class="result">AI readiness scoring across the portfolio, on one consistent rubric</span></div>
+            <div class="proof-row"><span class="client">Value creation</span><span class="result">Top workflow per portco, sized by cost of inaction</span></div>
+            <div class="proof-row"><span class="client">Governance</span><span class="result">Risk &amp; compliance posture, mapped for regulated environments</span></div>
+          </div>
+          <div class="cta-block"><a class="btn solid" href="#">Discuss a portfolio review</a></div>
+        </div>
+
+        <div class="scene" id="scene-team">
+          <div class="eyebrow">The collective</div>
+          <h2>Boards buy people. <em>Here are ours.</em></h2>
+          <p class="lede">A senior network, not a headcount. Operators who have held CTO, CPO and executive advisory roles inside the brands on our client list.</p>
+          <div class="team">
+            <div class="card"><div class="portrait">CM</div><h3>Chris Minas</h3><div class="role">Founder · Executive AI</div><p>Placeholder bio — 30+ years operating at CTO/CPO level across music, media and regulated industries.</p></div>
+            <div class="card"><div class="portrait">DS</div><h3>David Skerrett</h3><div class="role">Strategy Partner</div><p>Placeholder bio — 26 years of agency strategy leadership; 130+ industry awards; financial services and retail depth.</p></div>
+            <div class="card"><div class="portrait">+</div><h3>Technical Lead</h3><div class="role">Engineering</div><p>Placeholder — the hands-on delivery lead. Name, face and one-line proof to add.</p></div>
+            <div class="card"><div class="portrait">+</div><h3>Network Partner</h3><div class="role">Domain expert</div><p>Placeholder — pulled in per engagement. The collective model: senior only, no bench-warming.</p></div>
+          </div>
+          <div class="cta-block"><a class="btn solid" href="#">Meet the team on a call</a></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section class="packages" id="packages">
+  <div class="pk-inner">
+    <div class="pk-head">
+      <div class="eyebrow">How we work</div>
+      <h2>One ladder. <em>No leap of faith.</em></h2>
+      <p>Every engagement starts small, proves value, then scales. <strong>The Audit fee credits against the Sprint</strong> — you never pay twice for the same thinking.</p>
+    </div>
+
+    <div class="pk-grid">
+      <div class="pk front">
+        <h3>AI Execution Audit</h3>
+        <div class="pk-meta">2–3 weeks · Fixed fee</div>
+        <p>Scored roadmap, cost of inaction, and your three highest-value workflows. The front door to everything we do.</p>
+        <a href="#contact">Start here</a>
+      </div>
+      <div class="pk">
+        <h3>Proof Sprint</h3>
+        <div class="pk-meta">6–8 weeks</div>
+        <p>One workflow from the Audit, built and measured against success metrics agreed upfront. ROI on your data, not a slide.</p>
+        <a href="#contact">Prove it</a>
+      </div>
+      <div class="pk">
+        <h3>Transformation Programme</h3>
+        <div class="pk-meta">Quarterly retainer</div>
+        <p>Scale the proven pattern across teams — governance, compliance and workforce enablement built in, not bolted on.</p>
+        <a href="#contact">Scale it</a>
+      </div>
+      <div class="pk">
+        <h3>Fractional AI Leadership</h3>
+        <div class="pk-meta">Ongoing</div>
+        <p>Board-level oversight of model, vendor and roadmap decisions. Senior counsel in the room, without the full-time hire.</p>
+        <a href="#contact">Talk to us</a>
+      </div>
+    </div>
+
+    <div class="pk-note">
+      <span><b>Investors:</b> the Portfolio AI Review runs the Execution Audit across three portfolio companies and returns one comparative readout — where AI creates enterprise value, and what to fund first.</span>
+      <a href="#contact">Discuss a portfolio review</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div>
+      <h2>Start the <em>conversation.</em></h2>
+      <p class="sub">Tell us where you are with AI — experimenting, stalled, or scaling. We'll come back within one working day with an honest read on whether we can help.</p>
+      <div class="direct">
+        <span>PREFER DIRECT?</span>
+        <a href="mailto:hello@agenticcollective.ai">hello@agenticcollective.ai</a>
+        <a href="#" onclick="return false;">Book an executive strategy call →</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="cform" id="cform">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" type="text" placeholder="Your name" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-company">Company</label>
+            <input id="f-company" type="text" placeholder="Company or fund" autocomplete="organization">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" placeholder="you@company.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="f-stage">Where are you with AI?</label>
+          <select id="f-stage">
+            <option value="" selected disabled>Select one</option>
+            <option>Experimenting — tools everywhere, no traction</option>
+            <option>Stalled — pilots that never scaled</option>
+            <option>Scaling — need governance and structure</option>
+            <option>Investor — assessing portfolio companies</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">What's on your mind</label>
+          <textarea id="f-msg" placeholder="A sentence or two is plenty."></textarea>
+        </div>
+        <button class="send" id="sendBtn" type="button">Send enquiry</button>
+        <span class="form-note">Concept build — form not yet wired to a backend</span>
+      </div>
+      <div class="sent" id="sentMsg">
+        <b>Received.</b> Thank you — we'll reply within one working day. If it's urgent, email <b>hello@agenticcollective.ai</b> directly.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-mark">AGENTIC <em>COLLECTIVE</em></div>
+      <p class="foot-tag">Human Intelligence, orchestrated by AI. Practical transformation for boards, operators and investors.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <a href="#top">The Console</a>
+      <a href="#packages">How We Work</a>
+      <a href="#" onclick="return false;">Portfolio AI Review</a>
+      <a href="#" onclick="return false;">The Collective</a>
+    </div>
+    <div class="foot-col">
+      <h4>Connect</h4>
+      <a href="#" onclick="return false;">Insights<span class="new">Blog</span></a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:hello@agenticcollective.ai">hello@agenticcollective.ai</a>
+      <a href="#" onclick="return false;">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Agentic Collective Ltd</span>
+    <span>Registered in England &amp; Wales</span>
+    <span>Privacy · Terms</span>
+  </div>
+</footer>
+
+<script>
+/* ================= ORBITAL HERO ================= */
+const cv=document.getElementById('orbits'),octx=cv.getContext('2d');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let W,H,dpr,ccx,ccy;
+let tiltX=0,tiltY=0,tTiltX=0,tTiltY=0;
+const BASE_SQUASH=0.42,BASE_ROT=-0.16,RINGS=7;
+let rings=[],agents=[],stars=[];
+const m={x:-9999,y:-9999,inside:false};
+let heroVisible=true;
+
+function sizeHero(){
+  dpr=Math.min(devicePixelRatio||1,2);
+  const r=cv.getBoundingClientRect();W=r.width;H=r.height;
+  cv.width=W*dpr;cv.height=H*dpr;octx.setTransform(dpr,0,0,dpr,0,0);
+  ccx=W*0.55;ccy=H*0.40;buildHero();
+}
+function buildHero(){
+  rings=[];agents=[];stars=[];
+  const maxR=Math.min(W,H)*0.52;
+  for(let i=0;i<RINGS;i++){
+    const r=maxR*(0.16+0.84*(i/(RINGS-1)));rings.push(r);
+    const n=2+Math.round(i*0.5);
+    for(let a=0;a<n;a++)agents.push({ring:i,r,ang:Math.random()*6.283,baseSpeed:(0.0016+Math.random()*0.0012)*(i%2?1:-1),boost:0,size:1.4+Math.random()*1.5,warm:Math.random()});
+  }
+  for(let i=0;i<70;i++)stars.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.1+0.3,a:Math.random()*0.35+0.08,tw:Math.random()*6.28});
+}
+function proj(ang,r,rot,sq){
+  const x=Math.cos(ang)*r,y=Math.sin(ang)*r*sq;
+  return[ccx+x*Math.cos(rot)-y*Math.sin(rot),ccy+x*Math.sin(rot)+y*Math.cos(rot)];
+}
+function ringDist(r,rot,sq){
+  let best=1e9;
+  for(let a=0;a<6.283;a+=0.35){const[p,q]=proj(a,r,rot,sq);const d=Math.hypot(p-m.x,q-m.y);if(d<best)best=d}
+  return best;
+}
+function heroTick(){
+  if(heroVisible){
+    octx.clearRect(0,0,W,H);
+    if(m.inside&&!reduced){tTiltX=((m.x/W)-0.5)*0.22;tTiltY=((m.y/H)-0.5)*0.16}else{tTiltX=0;tTiltY=0}
+    tiltX+=(tTiltX-tiltX)*0.04;tiltY+=(tTiltY-tiltY)*0.04;
+    const rot=BASE_ROT+tiltX,sq=Math.max(0.22,Math.min(0.62,BASE_SQUASH+tiltY));
+    for(const s of stars){s.tw+=0.015;octx.fillStyle=`rgba(232,217,181,${s.a*(0.7+0.3*Math.sin(s.tw))})`;octx.beginPath();octx.arc(s.x,s.y,s.s,0,6.283);octx.fill()}
+    const boosts=rings.map(r=>{if(!m.inside)return 0;const d=ringDist(r,rot,sq);return Math.max(0,1-d/140)});
+    rings.forEach((r,i)=>{
+      octx.beginPath();
+      for(let a=0;a<=6.283;a+=0.05){const[p,q]=proj(a,r,rot,sq);a===0?octx.moveTo(p,q):octx.lineTo(p,q)}
+      octx.closePath();
+      octx.strokeStyle=`rgba(169,136,79,${0.10+boosts[i]*0.22})`;octx.lineWidth=boosts[i]>0.1?1.2:0.8;octx.stroke();
+    });
+    octx.beginPath();octx.arc(ccx,ccy,3.4,0,6.283);octx.fillStyle='rgba(239,234,224,0.96)';octx.fill();
+    octx.beginPath();octx.arc(ccx,ccy,9,0,6.283);octx.strokeStyle='rgba(239,234,224,0.18)';octx.lineWidth=1;octx.stroke();
+    for(const ag of agents){
+      const b=boosts[ag.ring];ag.boost+=(b-ag.boost)*0.06;
+      if(!reduced)ag.ang+=ag.baseSpeed*(1+ag.boost*5);
+      const trail=0.14+ag.boost*0.85,dir=Math.sign(ag.baseSpeed),STEPS=14;
+      for(let s=STEPS;s>0;s--){
+        const a0=ag.ang-dir*trail*(s/STEPS),a1=ag.ang-dir*trail*((s-1)/STEPS);
+        const[p0,q0]=proj(a0,ag.r,rot,sq),[p1,q1]=proj(a1,ag.r,rot,sq);
+        octx.strokeStyle=`rgba(232,217,181,${(1-s/STEPS)*(0.10+ag.boost*0.5)})`;
+        octx.lineWidth=1+ag.boost*1.2;
+        octx.beginPath();octx.moveTo(p0,q0);octx.lineTo(p1,q1);octx.stroke();
+      }
+      const[px,py]=proj(ag.ang,ag.r,rot,sq);
+      octx.fillStyle=ag.warm>0.5?`rgba(232,217,181,${0.65+ag.boost*0.35})`:`rgba(239,234,224,${0.65+ag.boost*0.35})`;
+      octx.beginPath();octx.arc(px,py,ag.size+ag.boost*1.4,0,6.283);octx.fill();
+      if(ag.boost>0.15){octx.fillStyle=`rgba(199,167,104,${ag.boost*0.18})`;octx.beginPath();octx.arc(px,py,(ag.size+3)*(1+ag.boost),0,6.283);octx.fill()}
+    }
+  }
+  requestAnimationFrame(heroTick);
+}
+cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top;m.inside=true});
+cv.addEventListener('touchmove',e=>{const r=cv.getBoundingClientRect();const t=e.touches[0];m.x=t.clientX-r.left;m.y=t.clientY-r.top;m.inside=true},{passive:true});
+cv.addEventListener('pointerleave',()=>m.inside=false);
+new IntersectionObserver(es=>{heroVisible=es[0].isIntersecting},{threshold:0.02}).observe(cv);
+let rT;addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(sizeHero,180)});
+sizeHero();requestAnimationFrame(heroTick);
+
+/* ================= CONSOLE ================= */
+const stream=document.getElementById('stream');
+const chipsEl=document.getElementById('chips');
+let consoleStarted=false;
+
+const script={
+  start:{
+    ac:"Welcome. This site works the way we do — you talk, it responds with substance.\nWho are we speaking with?",
+    chips:[["I run a PE firm / Family Office","pe"],["I'm a mid-market CEO","ceo"],["I'm a scale-up founder","founder"],["Just show me how you work","packages"]]
+  },
+  pe:{ac:"Then the question isn't whether AI matters — it's <strong>which portfolio companies it makes more valuable, and by how much.</strong>\nWe run one consistent audit across your portcos and hand you a comparative readout.",
+    scene:"scene-pe",
+    chips:[["What does an engagement look like?","packages"],["Who's behind this?","team"],["Back to start","start"]]},
+  ceo:{ac:"You're likely past experiments — disconnected tools, unclear ROI, board pressure to show results.\nWe start with a <strong>2–3 week Execution Audit</strong>: your three highest-value workflows, scored and sized. No theatre.",
+    scene:"scene-packages",
+    chips:[["Who's behind this?","team"],["I'm an investor, actually","pe"],["Back to start","start"]]},
+  founder:{ac:"Then you have the one advantage incumbents don't: <strong>no legacy.</strong>\nWe help you build AI into product, ops and go-to-market from day one — starting with a Proof Sprint, not a strategy deck.",
+    scene:"scene-packages",
+    chips:[["Who's behind this?","team"],["Back to start","start"]]},
+  packages:{ac:"Four rungs, one ladder. Start small, prove value, scale.\nThe Audit fee <strong>credits against the Sprint</strong> — you never pay twice for the same thinking.",
+    scene:"scene-packages",
+    chips:[["Who's behind this?","team"],["I'm an investor","pe"],["Back to start","start"]]},
+  team:{ac:"Operators, not observers. The people who ran technology and product inside the brands on our client list — <strong>Kobalt, Universal, BBC, Santander, Lloyds.</strong>",
+    scene:"scene-team",
+    chips:[["How do engagements work?","packages"],["Back to start","start"]]}
+};
+
+function addMsg(kind,html,typed){
+  const el=document.createElement('div');el.className='msg '+kind;
+  if(kind==='ac'){
+    el.innerHTML='<div class="who">Agentic Collective</div><div class="body"></div>';
+    stream.appendChild(el);
+    const body=el.querySelector('.body');
+    if(typed&&!reduced){typeOut(body,html)}else{body.innerHTML=html.replaceAll('\n','<br><br>')}
+  }else{
+    el.innerHTML='<div class="body">'+html+'</div>';stream.appendChild(el);
+  }
+  stream.scrollTop=stream.scrollHeight;
+}
+function typeOut(el,html){
+  el.innerHTML='<span class="t"></span><span class="caret"></span>';
+  const t=el.querySelector('.t'),caret=el.querySelector('.caret');
+  const plain=html.replace(/<[^>]+>/g,'');
+  let i=0;
+  const iv=setInterval(()=>{
+    i+=2;t.textContent=plain.slice(0,i);stream.scrollTop=stream.scrollHeight;
+    if(i>=plain.length){clearInterval(iv);caret.remove();el.innerHTML=html.replaceAll('\n','<br><br>');stream.scrollTop=stream.scrollHeight}
+  },11);
+}
+function setChips(list){
+  chipsEl.innerHTML='';
+  list.forEach(([label,key])=>{
+    const b=document.createElement('button');
+    b.className='chip'+(label.startsWith('Back')?' ghost':'');
+    b.textContent=label;b.onclick=()=>go(key,label);
+    chipsEl.appendChild(b);
+  });
+}
+function showScene(id){
+  document.querySelectorAll('.scene').forEach(s=>s.classList.remove('on'));
+  document.getElementById(id||'scene-hero').classList.add('on');
+  document.querySelector('.stage').scrollTop=0;
+}
+function go(key,label){
+  const node=script[key];if(!node)return;
+  if(label)addMsg('you',label);
+  setTimeout(()=>{
+    addMsg('ac',node.ac,true);
+    showScene(node.scene||'scene-hero');
+    setChips(node.chips);
+  },label?350:0);
+}
+
+/* contact form — concept state swap */
+document.getElementById('sendBtn').addEventListener('click',()=>{
+  const email=document.getElementById('f-email').value.trim();
+  if(!email||!email.includes('@')){
+    document.getElementById('f-email').style.borderBottomColor='#B45A5A';
+    document.getElementById('f-email').focus();
+    return;
+  }
+  document.getElementById('cform').style.display='none';
+  document.getElementById('sentMsg').style.display='block';
+});
+
+/* boot the console only when scrolled into view — the typing lands as you arrive */
+new IntersectionObserver((es,obs)=>{
+  if(es[0].isIntersecting&&!consoleStarted){
+    consoleStarted=true;
+    addMsg('ac',script.start.ac,true);
+    setChips(script.start.chips);
+    obs.disconnect();
+  }
+},{threshold:0.35}).observe(document.getElementById('console'));
+</script>
+</body>
+</html>
